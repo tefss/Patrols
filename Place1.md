@@ -10,6 +10,14 @@
             return now.toLocaleString();
         }
 
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            const results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
         // Function to update the WhatsApp link with form information
         function updateWhatsAppLink() {
             const place = document.getElementById('place').value;
@@ -41,6 +49,10 @@
 
         // Set the current date and time on page load
         window.onload = function() {
+            const place = getUrlParameter('place');
+            if (place) {
+                document.getElementById('place').value = place;
+            }
             document.getElementById('datetime').value = getCurrentDateTime();
         };
     </script>
@@ -48,7 +60,7 @@
 <body>
     <form onsubmit="return false;">
         <label for="place">Place:</label><br>
-        <input type="text" id="place" name="place" value="LocationName" readonly><br><br>
+        <input type="text" id="place" name="place" readonly><br><br>
         
         <label for="name">Name:</label><br>
         <input type="text" id="name" name="name" required><br><br>
