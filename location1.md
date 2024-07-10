@@ -1,21 +1,14 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patrol Check</title>
+    <title>Patrol Check - Location 1</title>
     <script>
         // Function to get the current date and time
         function getCurrentDateTime() {
             const now = new Date();
             return now.toLocaleString();
-        }
-
-        // Function to get URL parameters
-        function getUrlParameter(name) {
-            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-            const results = regex.exec(location.search);
-            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
         }
 
         // Function to update the WhatsApp link with form information
@@ -47,13 +40,10 @@
             window.open(document.getElementById('whatsappLink').href, '_blank');
         }
 
-        // Set the current date and time and the place on page load
+        // Set the current date and time on page load
         window.onload = function() {
-            const place = getUrlParameter('place');
-            if (place) {
-                document.getElementById('place').value = place;
-            }
             document.getElementById('datetime').value = getCurrentDateTime();
+            document.getElementById('place').value = "Location 1";
         };
     </script>
 </head>
