@@ -17,7 +17,7 @@
             const datetime = document.getElementById('datetime').value;
 
             const message = `Place: ${place}%0AName: ${name}%0ADTG: ${datetime}`;
-            const phoneNumber = '+9647861708695';
+            const phoneNumber = '+9647864006507';
             const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
 
             // Update the WhatsApp link
